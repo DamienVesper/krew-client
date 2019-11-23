@@ -1,0 +1,20 @@
+{
+  "name": "krew-client",
+  "author": "DamienVesper",
+  "version": "0.0.8",
+  "description": "A Torn.Space client.",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "def": "node .",
+    "build": "electron-packager . --asar --all --overwrite"
+  },
+  "dependencies": {
+    "discord-rpc": "^3.1.0",
+    "discord.js": "^11.5.1",
+    "electron": "^7.1.1",
+    "electron-packager": "^14.1.0",
+    "fs": "^0.0.2"
+  },
+  "repository": "https://github.com/DamienVesper/krew-client/"
+}
