@@ -1,20 +1,24 @@
 {
   "name": "krew-client",
-  "author": "DamienVesper",
-  "version": "0.0.8",
-  "description": "A Torn.Space client.",
+  "version": "1.0.0",
+  "description": "A simple Chromium wrapper for the online 2D browser game krew.io.",
   "main": "index.js",
   "scripts": {
-    "start": "electron .",
-    "def": "node .",
-    "build": "electron-packager . --asar --all --overwrite"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "discord-rpc": "^3.1.0",
-    "discord.js": "^11.5.1",
-    "electron": "^7.1.1",
-    "electron-packager": "^14.1.0",
-    "fs": "^0.0.2"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DamienVesper/krew-client.git"
   },
-  "repository": "https://github.com/DamienVesper/krew-client/"
+  "keywords": [
+    "krew",
+    "nodejs",
+    "electron"
+  ],
+  "author": "DamienVesper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DamienVesper/krew-client/issues"
+  },
+  "homepage": "https://github.com/DamienVesper/krew-client#readme"
 }

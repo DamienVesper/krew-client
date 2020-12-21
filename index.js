@@ -1,27 +1,21 @@
 const electron = require(`electron`);
-const jsonstore = require(`jsonstore`);
 const RPC = require(`discord-rpc`);
 const { app, BrowserWindow } = require(`electron`);
-const version = `0.0.8`;
-let store = new jsonstore(process.env.JSONSTORE_TOKEN);
 let win;
 
-function createWindow() {
-    store.read(`/version`).then(data => {
-        win = new BrowserWindow({
-            width: 800,
-            height: 600,
-            titleBarStyle: 'hidden',
-            title: `Krew.io`,
-            webPreferences: {
-                nodeIntegration: true
-            }
-        });
-    
-        if(version != data) win.loadFile(`outdated.html`);
-        else win.loadFile(`index.html`);
-        win.on(`closed`, () => win = null);
+let createWindow = () => {
+    win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        titleBarStyle: 'hidden',
+        title: `Krew.io`,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
+
+    win.loadFile(`index.html`);
+    win.on(`closed`, () => win = null);
 }
 
 app.on(`ready`, () => {
@@ -36,7 +30,7 @@ app.on(`activate`, () => {
     if(win == null) createWindow();
 });
 
-//Discord RPC
+// Discord RPC
 const clientID = null;
 const scopes = [`rpc`, `rpc.api`, `messages.read`];
 const startTimestamp = new Date();
@@ -46,7 +40,7 @@ RPC.register(clientID);
 
 async function refreshActivity() {
     client.setActivity({
-        details: `Sailing the Seven Seas`,
+        details: `Shooting Ships`,
         state: `Competitive`,
         startTimestamp,
         largeImageKey: `krew-logo`,
@@ -61,5 +55,3 @@ client.on(`ready`, () => {
     setInterval(refreshActivity, 15e3);
 });
 client.login({ clientID, scopes }).catch(err => `Failed to connect to Discord via RPC.`);
-
-store.write(`/logs/${new Date()}`, `App is running.`).catch(err => console.log(`Failed to connect to the application's host server.`));
