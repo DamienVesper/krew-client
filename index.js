@@ -31,7 +31,7 @@ app.on(`activate`, () => {
 });
 
 // Discord RPC
-const clientID = null;
+const clientID = `653771636213940264`;
 const scopes = [`rpc`, `rpc.api`, `messages.read`];
 const startTimestamp = new Date();
 

@@ -4,7 +4,8 @@
   "description": "A simple Chromium wrapper for the online 2D browser game krew.io.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "electron .",
+    "build": "electron-packager . --asar"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/DamienVesper/krew-client/issues"
   },
-  "homepage": "https://github.com/DamienVesper/krew-client#readme"
+  "homepage": "https://github.com/DamienVesper/krew-client#readme",
+  "dependencies": {
+    "discord-rpc": "^3.1.4",
+    "electron": "^11.1.0",
+    "electron-packager": "^15.2.0"
+  }
 }
